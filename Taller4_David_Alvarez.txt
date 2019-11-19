@@ -1,0 +1,10 @@
+val tabTaller = List((72,115), (76,121), (78,125), (81,130), (89,141), (95,150), (108,165), (115,170), (120,177), (130,178))
+
+ def calPearson (tabla: List[(Int, Int)] ): Double ={
+ val mediaX= (tabla. map(a=> a._1).sum.toDouble/tabla.length)
+ val mediaY= (tabla. map(a=> a._2).sum.toDouble/tabla.length)
+ val covarianza = ((tabla. map(a=> a._1 *a._2).sum )/ tabla.length) -(mediaX *mediaY)
+ val desX= Math.sqrt((tabla. map(x=> Math.pow(x._1,2)).sum/ tabla.length)- Math.pow(mediaX,2))
+ val desY =Math.sqrt((tabla. map(y=> Math.pow(y._2,2)).sum/ tabla.length)- Math.pow(mediaY,2))
+ covarianza/(desX*desY)
+ }
